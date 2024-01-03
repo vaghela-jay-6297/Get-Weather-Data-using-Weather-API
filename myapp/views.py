@@ -8,7 +8,7 @@ def index(request):
         city = request.POST.get('city', 'True')
         appid = 'ADD_YOUR_WEATHER_API_HERE'
         api = "https://api.openweathermap.org/data/2.5/weather?q={}&appid={}".format(city, appid)
-        # api = 'https://api.openweathermap.org/data/2.5/weather?q=' + city + '&units=imperial&appid=7c054f05a1cdbb551ec3128b226a4d10'
+        
         get_data = urllib.request.urlopen(api).read()   # get data of weather in JSON formt
         json_data = json.loads(get_data)    # bytes data convert into json
         x,y = json_data['coord']['lon'], json_data['coord']['lat'] 
